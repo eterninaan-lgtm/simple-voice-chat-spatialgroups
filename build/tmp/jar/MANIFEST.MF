@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Specification-Title: spatialgroups
+Specification-Vendor: SpatialGroups
+Specification-Version: 2.1.0
+Implementation-Title: spatialgroups
+Implementation-Version: 2.1.0
+Implementation-Vendor: SpatialGroups
+

@@ -1,0 +1,40 @@
+modLoader = "javafml"
+loaderVersion = "*"
+license = "MIT"
+
+[[mods]]
+modId = "spatialgroups"
+version = "2.1.0"
+displayName = "Simple Voice Chat SpatialGroups"
+authors = "Eternin"
+logoFile = "icon.png"
+description = '''Simple Voice Chat addon: keeps 3D audio for nearby party members.'''
+displayTest = "IGNORE_ALL_VERSION"
+
+[[dependencies.spatialgroups]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.1.0,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.spatialgroups]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21,1.21.1]"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.spatialgroups]]
+modId = "voicechat"
+type = "required"
+versionRange = "[1.21.1-2.6.20,1.21.1-2.7.0)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.spatialgroups]]
+modId = "voicechat_api"
+type = "required"
+versionRange = "[2.6.20,2.7.0)"
+ordering = "AFTER"
+side = "BOTH"
