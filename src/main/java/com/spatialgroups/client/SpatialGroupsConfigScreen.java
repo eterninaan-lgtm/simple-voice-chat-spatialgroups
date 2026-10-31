@@ -2,7 +2,6 @@ package com.spatialgroups.client;
 
 import com.spatialgroups.SpatialGroupsClientState;
 import com.spatialgroups.SpatialGroupsCommonConfig;
-import com.spatialgroups.SpatialGroupsConfig;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractSliderButton;
@@ -26,8 +25,8 @@ import java.util.function.DoubleFunction;
  * / Cloth Config style: a title, a row of tabs, a search box and one flat list of options. There
  * are no folders and no icons - all labels and buttons are plain text.</p>
  *
- * <p>The screen writes directly to the NeoForge {@link ModConfigSpec} client config. Values are
- * applied immediately in memory and saved to {@code config/spatialgroups/client.toml} when a
+ * <p>The screen writes directly to the NeoForge {@link ModConfigSpec} common config. Values are
+ * applied immediately in memory and saved to {@code config/spatialgroups/common.toml} when a
  * slider is released or the screen is closed.</p>
  */
 public class SpatialGroupsConfigScreen extends Screen {
@@ -140,19 +139,19 @@ public class SpatialGroupsConfigScreen extends Screen {
         this.rows.clear();
 
         addBooleanRow(0, Component.translatable("spatialgroups.configuration.enabled"),
-                SpatialGroupsConfig.ENABLED, controlWidth);
+                SpatialGroupsCommonConfig.ENABLED, controlWidth);
         addBooleanRow(0, Component.translatable("spatialgroups.configuration.persistent_groups"),
                 SpatialGroupsCommonConfig.PERSISTENT_GROUPS, controlWidth);
         addSliderRow(1, Component.translatable("spatialgroups.configuration.spatial_distance"),
-                SpatialGroupsConfig.SPATIAL_DISTANCE, 0.0D, 160.0D, 1.0D,
+                SpatialGroupsCommonConfig.SPATIAL_DISTANCE, 0.0D, 160.0D, 1.0D,
                 SpatialGroupsConfigScreen::formatSpatialDistance,
                 controlWidth);
         addSliderRow(1, Component.translatable("spatialgroups.configuration.fade_distance"),
-                SpatialGroupsConfig.FADE_DISTANCE, 1.0D, 96.0D, 1.0D,
+                SpatialGroupsCommonConfig.FADE_DISTANCE, 1.0D, 96.0D, 1.0D,
                 value -> Component.translatable("gui.spatialgroups.blocks", Math.round(value)),
                 controlWidth);
         addSliderRow(1, Component.translatable("spatialgroups.configuration.minimum_gain"),
-                SpatialGroupsConfig.MINIMUM_GAIN, 0.0D, 1.0D, 0.05D,
+                SpatialGroupsCommonConfig.MINIMUM_GAIN, 0.0D, 1.0D, 0.05D,
                 value -> Component.translatable("gui.spatialgroups.percent", Math.round(value * 100.0D)),
                 controlWidth);
     }
@@ -227,10 +226,10 @@ public class SpatialGroupsConfigScreen extends Screen {
     }
 
     private void resetAll() {
-        SpatialGroupsConfig.ENABLED.set(Boolean.TRUE.equals(SpatialGroupsConfig.ENABLED.getDefault()));
-        SpatialGroupsConfig.SPATIAL_DISTANCE.set(SpatialGroupsConfig.SPATIAL_DISTANCE.getDefault());
-        SpatialGroupsConfig.FADE_DISTANCE.set(SpatialGroupsConfig.FADE_DISTANCE.getDefault());
-        SpatialGroupsConfig.MINIMUM_GAIN.set(SpatialGroupsConfig.MINIMUM_GAIN.getDefault());
+        SpatialGroupsCommonConfig.ENABLED.set(Boolean.TRUE.equals(SpatialGroupsCommonConfig.ENABLED.getDefault()));
+        SpatialGroupsCommonConfig.SPATIAL_DISTANCE.set(SpatialGroupsCommonConfig.SPATIAL_DISTANCE.getDefault());
+        SpatialGroupsCommonConfig.FADE_DISTANCE.set(SpatialGroupsCommonConfig.FADE_DISTANCE.getDefault());
+        SpatialGroupsCommonConfig.MINIMUM_GAIN.set(SpatialGroupsCommonConfig.MINIMUM_GAIN.getDefault());
         SpatialGroupsCommonConfig.PERSISTENT_GROUPS.set(Boolean.TRUE.equals(SpatialGroupsCommonConfig.PERSISTENT_GROUPS.getDefault()));
         saveAll();
 
@@ -324,14 +323,14 @@ public class SpatialGroupsConfigScreen extends Screen {
      * @return a one line summary of the currently effective ranges (distance tab only)
      */
     private static Component effectiveRangeText() {
-        double range = SpatialGroupsConfig.SPATIAL_DISTANCE.get();
+        double range = SpatialGroupsCommonConfig.SPATIAL_DISTANCE.get();
         if (range <= 0.0D) {
             range = SpatialGroupsClientState.getVoiceChatDistance();
         }
         if (range <= 0.0D) {
             return Component.translatable("gui.spatialgroups.range_unknown");
         }
-        double fade = Math.max(0.0D, Math.min(SpatialGroupsConfig.FADE_DISTANCE.get(), range));
+        double fade = Math.max(0.0D, Math.min(SpatialGroupsCommonConfig.FADE_DISTANCE.get(), range));
         long start = Math.round(range - fade);
         long end = Math.round(range);
         return Component.translatable("gui.spatialgroups.range_info", start, start, end, end);
@@ -347,14 +346,9 @@ public class SpatialGroupsConfigScreen extends Screen {
 
     private void saveAll() {
         try {
-            SpatialGroupsConfig.SPEC.save();
-        } catch (Throwable ignored) {
-            // The config is not loaded (for example in a very early screen); nothing to save.
-        }
-        try {
             SpatialGroupsCommonConfig.SPEC.save();
         } catch (Throwable ignored) {
-            // Same as above for the common config.
+            // The config is not loaded (for example in a very early screen); nothing to save.
         }
     }
 

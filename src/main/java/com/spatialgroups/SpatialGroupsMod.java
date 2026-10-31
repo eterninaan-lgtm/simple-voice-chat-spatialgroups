@@ -33,7 +33,8 @@ public final class SpatialGroupsMod {
         // the configs.
         SpatialGroupsPaths.migrateLegacyFiles();
 
-        // Server side persistent groups: config/spatialgroups/common.toml
+        // All settings: config/spatialgroups/common.toml. The 3D audio options are read on the
+        // client, the persistent group option on the server.
         modContainer.registerConfig(ModConfig.Type.COMMON, SpatialGroupsCommonConfig.SPEC,
                 SpatialGroupsPaths.COMMON_CONFIG);
 

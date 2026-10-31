@@ -11,8 +11,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
  *
  * <p>All generated files live in one folder, {@code config/spatialgroups/}:</p>
  * <ul>
- *     <li>{@code client.toml} - client side 3D audio settings</li>
- *     <li>{@code common.toml} - server side persistent group setting</li>
+ *     <li>{@code common.toml} - all settings (3D audio and persistent groups)</li>
  *     <li>{@code persistent-groups.properties} - saved groups and members</li>
  * </ul>
  *
@@ -25,10 +24,8 @@ public final class SpatialGroupsPaths {
     public static final String FOLDER = "spatialgroups";
 
     /** File name as passed to NeoForge; a relative path keeps the config inside the folder. */
-    public static final String CLIENT_CONFIG = FOLDER + "/client.toml";
     public static final String COMMON_CONFIG = FOLDER + "/common.toml";
 
-    private static final String LEGACY_CLIENT_CONFIG = "spatialgroups-client.toml";
     private static final String LEGACY_COMMON_CONFIG = "spatialgroups-common.toml";
     private static final String LEGACY_PERSISTENT_GROUPS = "spatialgroups-persistent-groups.properties";
 
@@ -61,7 +58,6 @@ public final class SpatialGroupsPaths {
             return;
         }
 
-        migrate(LEGACY_CLIENT_CONFIG, "client.toml");
         migrate(LEGACY_COMMON_CONFIG, "common.toml");
         migrate(LEGACY_PERSISTENT_GROUPS, "persistent-groups.properties");
     }

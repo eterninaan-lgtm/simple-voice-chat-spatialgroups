@@ -91,7 +91,7 @@ public final class SpatialAudioEngine {
             return;
         }
 
-        if (!SpatialGroupsConfig.ENABLED.get()) {
+        if (!SpatialGroupsCommonConfig.ENABLED.get()) {
             return;
         }
 
@@ -148,13 +148,13 @@ public final class SpatialAudioEngine {
             return;
         }
 
-        double fadeDistance = SpatialGroupsConfig.FADE_DISTANCE.get();
+        double fadeDistance = SpatialGroupsCommonConfig.FADE_DISTANCE.get();
         double fade = SpatialGroupsMath.fadeFactor(distance, spatialDistance, fadeDistance);
         double gain = SpatialGroupsMath.blendedGain(
                 distance,
                 spatialDistance,
                 fadeDistance,
-                SpatialGroupsConfig.MINIMUM_GAIN.get()
+                SpatialGroupsCommonConfig.MINIMUM_GAIN.get()
         );
 
         Vec3 direction = computeBlendedDirection(camera, listenerPosition, speakerPosition, fade);
@@ -244,7 +244,7 @@ public final class SpatialAudioEngine {
      * @return the distance up to which group voice should be rendered positionally
      */
     private static double resolveSpatialDistance() {
-        double configured = SpatialGroupsConfig.SPATIAL_DISTANCE.get();
+        double configured = SpatialGroupsCommonConfig.SPATIAL_DISTANCE.get();
         if (configured > 0.0D) {
             return configured;
         }

@@ -1,9 +1,6 @@
 package com.spatialgroups.client;
 
-import com.spatialgroups.SpatialGroupsConfig;
-import com.spatialgroups.SpatialGroupsPaths;
 import net.neoforged.fml.ModContainer;
-import net.neoforged.fml.config.ModConfig;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 
 /**
@@ -16,10 +13,8 @@ public final class SpatialGroupsClientSetup {
     }
 
     public static void register(ModContainer modContainer) {
-        // Client audio settings: config/spatialgroups/client.toml
-        modContainer.registerConfig(ModConfig.Type.CLIENT, SpatialGroupsConfig.SPEC,
-                SpatialGroupsPaths.CLIENT_CONFIG);
-        // Flat, tabbed in-game settings screen.
+        // Flat, tabbed in-game settings screen. The settings themselves are part of the common
+        // config, registered by the mod entry point.
         modContainer.registerExtensionPoint(IConfigScreenFactory.class,
                 (container, parent) -> new SpatialGroupsConfigScreen(parent));
     }
