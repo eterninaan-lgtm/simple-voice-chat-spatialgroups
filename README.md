@@ -1,4 +1,5 @@
 # Simple Voice Chat SpatialGroups
+简体中文 | [简体中文](./README.zh.md)
 
 A mod for [Simple Voice Chat](https://github.com/henkelmax/simple-voice-chat).
 
