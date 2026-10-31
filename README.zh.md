@@ -1,4 +1,6 @@
  # Simple Voice Chat SpatialGroups
+简体中文 | [English](./README.md)
+ 
 一个服务于 [Simple Voice Chat](https://github.com/henkelmax/simple-voice-chat) 的模组：
 
 - 主要功能：Simple Voice Chat 的群组语音默认没有方位感，即3D空间音效。SpatialGroups模组会在你的客户端把群组语音重新渲染成3D空间音频，群组内成员之间，近距离与同伴交流也将拥有3D空间音效，远距离保留Simple Voice Chat原本的语音模式，语音之间利用声音大小渐变实现平滑过度。
