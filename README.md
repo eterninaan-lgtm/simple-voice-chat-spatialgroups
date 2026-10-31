@@ -45,7 +45,7 @@ A mod for [Simple Voice Chat](https://github.com/henkelmax/simple-voice-chat).
 
 - **Edge Volume:** The minimum volume at the outer edge of the 3D audio range, preventing audio from suddenly cutting out at the boundary.
 
-## Annotation
+## Notes
 
 - **Group Voice Chat Only:** Regular proximity voice chat outside of groups is completely unaffected by this mod.
 - Main dependency: Simple Voice Chat API (compileOnly, provided at runtime by `voicechat`).
