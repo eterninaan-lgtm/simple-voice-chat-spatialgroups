@@ -51,4 +51,5 @@ A mod for [Simple Voice Chat](https://github.com/henkelmax/simple-voice-chat).
 - Main dependency: Simple Voice Chat API (compileOnly, provided at runtime by `voicechat`).
 - Display Name: Simple Voice Chat SpatialGroups
 - Mod ID: `spatialgroups`
+
 ![Mod Icon](docs/icon.png)
