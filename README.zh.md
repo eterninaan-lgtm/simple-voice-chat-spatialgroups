@@ -41,17 +41,5 @@
 - Simple Voice Chat API（compileOnly，运行时由 `voicechat` 提供）
 - 模组显示名：Simple Voice Chat SpatialGroups
 - 模组 ID：`spatialgroups`
+
 ![模组图标](docs/icon.png)
-
-
-## 文件校验
-
-`simple-voice-chat-spatialgroups-neoforge-1.21.1-2.1.0.jar` 的 SHA-256：
-
-```
-343BA9DCC643C531E339923226214A66567CBC15966739F21222245535D1D5B4
-```
-
-## License
-
-MIT
