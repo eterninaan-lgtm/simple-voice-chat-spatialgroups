@@ -52,15 +52,3 @@ A mod for [Simple Voice Chat](https://github.com/henkelmax/simple-voice-chat).
 - Display Name: Simple Voice Chat SpatialGroups
 - Mod ID: `spatialgroups`
 ![Mod Icon](docs/icon.png)
-
-## File Verification
-
-SHA-256 checksum for `simple-voice-chat-spatialgroups-neoforge-1.21.1-2.1.0.jar`:
-
-```text
-343BA9DCC643C531E339923226214A66567CBC15966739F21222245535D1D5B4
-```
-
-## License
-
-MIT
